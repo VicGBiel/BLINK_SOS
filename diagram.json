@@ -1,0 +1,36 @@
+{
+    "version": 1,
+    "author": "Victor Gabriel",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "board-pi-pico-w",
+        "id": "pico",
+        "top": 0,
+        "left": 0,
+        "attrs": { "builder": "pico-sdk" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": 92.4,
+        "left": -111.4,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 176.75,
+        "left": -96,
+        "attrs": { "value": "1000" }
+      }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "pico:GP11", "led1:A", "red", [ "h0" ] ],
+      [ "pico:GND.4", "r1:2", "black", [ "h0" ] ],
+      [ "r1:1", "led1:C", "blue", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }
